@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Source code: https://github.com/mayank1112/tree-generator/blob/main/README.md
+Source code: https://github.com/mayank1112/tree-generator/
 ## Available Scripts
 
 To test this project, you can run:
