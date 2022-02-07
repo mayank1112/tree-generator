@@ -10,7 +10,7 @@ export const generateTreeForParentId = (originalList: Nodes, parentId: ParentNod
     originalList.forEach(node => { mapOfNodes[node.nodeId] = node });
 
     const tree: Nodes = [];
-    mapOfNodes.forEach(node => {
+    mapOfNodes.some(node => {
         if (node.parentId === parentId) {
             if (node.previousSiblingId === null) {
                 // Add first child (node with no previousSiblingId value)
@@ -25,8 +25,10 @@ export const generateTreeForParentId = (originalList: Nodes, parentId: ParentNod
                     mapOfNodes.splice(parseInt(sibling.nodeId), 1);
                     nextNode = sibling;
                 }
+                return true;
             }
         }
+        return false;
     });
     return tree;
 };

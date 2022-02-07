@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Transformer = () => {
     const [inputValue, setInputValue] = useState<string>(JSON.stringify(DEFAULT_NODES));
     const [submittedValue, setSubmittedValue] = useState<Nodes>(DEFAULT_NODES);
+    const [tree, setTree] = useState<Nodes>([]);
 
     const onNodesChange = event => {
         setInputValue(event.target.value);
@@ -19,15 +20,19 @@ const Transformer = () => {
         try {
             const jsonInput = JSON.parse(inputValue);
             setSubmittedValue(jsonInput);
+            setTree(generateTree(submittedValue));
             if (jsonInput.length > 0) {
-                toast("Wow so easy! Now, inspect the output JSON below, remember to expand the tree by clicking green icon!");
+                toast("Wow so easy! Now, expand the output tree by clicking green icon!");
             }
         } catch (error) {
             toast("Something went wrong. Possibly JSON was not entered correctly! Please check and try again");
         }
     };
 
-    const tree = generateTreeForParentId(submittedValue, null);
+    const generateTree = (nodes: Nodes) => {
+        return generateTreeForParentId(nodes, null);
+    };
+
     const treeString = JSON.stringify(tree);
 
     return (
