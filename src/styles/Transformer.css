@@ -1,0 +1,10 @@
+.Nodes-input {
+    width: 100%;
+    height: 250px;
+}
+
+.Generate-button {
+    font-weight: bold;
+    margin: 10px 0;
+    padding: 10px 20px;
+}
