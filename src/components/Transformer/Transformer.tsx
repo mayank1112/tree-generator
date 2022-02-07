@@ -1,20 +1,30 @@
 import { useState } from 'react';
 import ReactJson from 'react-json-view';
+import { toast, ToastContainer } from 'react-toastify';
 import { Nodes } from '../../interfaces/transformerInterface';
 import '../../styles/Transformer.css';
 import { DEFAULT_NODES } from './constants/transformerConstants.ts';
 import { generateTreeForParentId } from './utils/transformerUtil.ts';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Transformer = () => {
     const [inputValue, setInputValue] = useState<string>(JSON.stringify(DEFAULT_NODES));
-    const [submittedValue, setSubmittedValue] = useState<Nodes>([]);
+    const [submittedValue, setSubmittedValue] = useState<Nodes>(DEFAULT_NODES);
 
     const onNodesChange = event => {
         setInputValue(event.target.value);
     };
 
     const onNodesSubmit = () => {
-        setSubmittedValue(JSON.parse(inputValue));
+        try {
+            const jsonInput = JSON.parse(inputValue);
+            setSubmittedValue(jsonInput);
+            if (jsonInput.length > 0) {
+                toast("Wow so easy! Now, inspect the output JSON below, remember to expand the tree by clicking green icon!");
+            }
+        } catch (error) {
+            toast("Something went wrong. Possibly JSON was not entered correctly! Please check and try again");
+        }
     };
 
     const tree = generateTreeForParentId(submittedValue, null);
@@ -30,6 +40,7 @@ const Transformer = () => {
             <h2>Output:</h2>
             <div><ReactJson src={tree} collapsed /></div>
             <div><textarea className='Nodes-input' value={treeString} readOnly /></div>
+            <ToastContainer />
         </div>
     );
 };
