@@ -1,8 +1,14 @@
 # Tree Generator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In the demo screen, you need to click "Convert" thatcan rearrange the flat array of nodes into a sorted tree structure, where every node is placed under its parent and along with its siblings.
 
 Source code: https://github.com/mayank1112/tree-generator/
+
+Live Demo: http://demo.mayank.uk
+
+Screenshot:
+![Tree Generator](http://demo.mayank.uk/screenshot.png)
+
 ## Available Scripts
 
 To test this project, you can run:
