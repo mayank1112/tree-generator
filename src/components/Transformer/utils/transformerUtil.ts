@@ -19,7 +19,7 @@ export const generateTreeForParentId = (originalList: Nodes, parentId: ParentNod
 
                 // Add all other children (nodes with previousSiblingId values)
                 let sibling: Node;
-                let nextNode = node;
+                let nextNode: Node = node;
                 while(sibling = getSiblingForNode(originalList, nextNode)) {
                     tree.push({...sibling, children: generateTreeForParentId(originalList, sibling.nodeId)});
                     mapOfNodes.splice(parseInt(sibling.nodeId), 1);

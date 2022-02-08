@@ -18,14 +18,15 @@ const Transformer = () => {
 
     const onNodesSubmit = () => {
         try {
-            const jsonInput = JSON.parse(inputValue);
+            const jsonInput: Nodes = JSON.parse(inputValue);
             setSubmittedValue(jsonInput);
-            setTree(generateTree(submittedValue));
-            if (jsonInput.length > 0) {
+            const newTree = generateTree(jsonInput);
+            setTree(newTree);
+            if (newTree.length > 0) {
                 toast("Wow so easy! Now, expand the output tree by clicking green icon!");
             }
         } catch (error) {
-            toast("Something went wrong. Possibly JSON was not entered correctly! Please check and try again");
+            toast.error("Something went wrong. Possibly JSON was not entered correctly! Please check and try again");
         }
     };
 
