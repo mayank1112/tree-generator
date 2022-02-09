@@ -23,7 +23,7 @@ const Transformer = () => {
             const newTree = generateTree(jsonInput);
             setTree(newTree);
             if (newTree.length > 0) {
-                toast("Wow so easy! Now, expand the output tree by clicking green icon!");
+                toast("Well done! Now, expand the output tree by clicking green icon to test the output");
             }
         } catch (error) {
             toast.error("Something went wrong. Possibly JSON was not entered correctly! Please check and try again");
