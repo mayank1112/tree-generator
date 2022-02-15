@@ -1,6 +1,6 @@
 # The Solution
 
-This project was bootstrapped with Javascript [React App](https://github.com/facebook/create-react-app) using recursion. The logic is present in [transformerUtil.ts](https://github.com/kpmg-software-engineering-recruitment/mm-220203-1700-uk/pull/1/files#diff-e844153fa73954cfab72e0f783a6e3d6c93f8c182772fc872b85d494c275d4e4)
+This project was bootstrapped with Javascript [React App](https://github.com/facebook/create-react-app) using recursion. The logic is present in [transformerUtil.ts](https://github.com/mayank1112/tree-generator/blob/main/src/components/Transformer/utils/transformerUtil.ts)
 
 ## Live Demo
 
